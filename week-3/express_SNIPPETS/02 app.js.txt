@@ -1,0 +1,11 @@
+var express = require('express');
+var app = express();
+var port = 3000;
+
+app.listen(port, function(err, res) {
+    if (err) {
+        console.log("Server Error!")
+    } else {
+        console.log("Server started and listening on port " + port);
+    }
+});
