@@ -1,0 +1,138 @@
+> use Zenith
+switched to db Zenith
+> db.createCollection("Activities", {})
+{ "ok" : 1 }
+> db.Activities.insert({
+... event_Name: "Seniors Golf Tournament",
+... start_date: JSON.stringify(new Date(2018, 1, 6, 0, 30, 00)),
+... end_date: JSON.stringify(new Date(2006, 1, 6, 2, 30, 00)),
+... });
+WriteResult({ "nInserted" : 1 })
+> db.Activities.find();
+{ "_id" : ObjectId("5a67eec44c9560820d26ac1a"), "event_Name" : "Seniors Golf Tournament", "start_date" : "\"2018-02-06T08:30:00.000Z\"", "end_date" : "\"2006-02-06T10:30:00.000Z\"" }
+> db.Activities.insert({
+... event_Name: "Community General Assembly Meeting",
+... start_date: JSON.stringify(new Date(2018, 1, 7, 10, 30, 00)),
+... end_date: JSON.stringify(new Date(2018, 1, 7, 12, 00, 00)),
+... });
+WriteResult({ "nInserted" : 1 })
+> db.Activities.insert({
+... event_Name: "Youth Bowling Tournament",
+... start_date: JSON.stringify(new Date(2018, 1, 9, 9, 30, 00)),
+... end_date: JSON.stringify(new Date(2018, 1, 9, 11, 15, 00)),
+... });
+WriteResult({ "nInserted" : 1 })
+> db.Activities.insert({
+... event_Name: "Ladies Cooking Lesson",
+... start_date: JSON.stringify(new Date(2018, 1, 9, 11, 15, 00)),
+... end_date: JSON.stringify(new Date(2018, 1, 9, 12, 00, 00)),
+... });
+WriteResult({ "nInserted" : 1 })
+> db.Activities.insert({
+... event_Name: "Youth Craft Lessons",
+... start_date: JSON.stringify(new Date(2018, 1, 10, 0, 30, 00)),
+... end_date: JSON.stringify(new Date(2018, 1, 10, 2, 00, 00)),
+... });
+WriteResult({ "nInserted" : 1 })
+> db.Activities.insert({
+... event_Name: "Adult Choir Practice",
+... start_date: JSON.stringify(new Date(2018, 1, 10, 2, 30, 00)),
+... end_date: JSON.stringify(new Date(2018, 1, 10, 4, 00, 00)),
+... });
+WriteResult({ "nInserted" : 1 })
+> db.Activities.insert({
+... event_Name: "Lunch",
+... start_date: JSON.stringify(new Date(2018, 1, 10, 4, 00, 00)),
+... end_date: JSON.stringify(new Date(2018, 1, 10, 5, 30, 00)),
+... });
+WriteResult({ "nInserted" : 1 })
+> db.Activities.insert({
+... event_Name: "Pancake Breakfast",
+... start_date: JSON.stringify(new Date(2018, 1, 9, 23, 30, 00)),
+... end_date: JSON.stringify(new Date(2018, 1, 9, 0, 30, 00)),
+... });
+WriteResult({ "nInserted" : 1 })
+> db.Activities.insert({
+... event_Name: "Swimming Lessons for the Youth",
+... start_date: JSON.stringify(new Date(2018, 1, 11, 0, 30, 00)),
+... end_date: JSON.stringify(new Date(2018, 1, 11, 2, 30, 00)),
+... });
+WriteResult({ "nInserted" : 1 })
+> db.Activities.insert({
+... event_Name: "Swimming Exercise for Parents",
+... start_date: JSON.stringify(new Date(2018, 1, 11, 0, 30, 00)),
+... end_date: JSON.stringify(new Date(2018, 1, 11, 2, 30, 00)),
+... });
+WriteResult({ "nInserted" : 1 })
+> db.Activities.insert({
+... event_Name: "Bingo Tournament",
+... start_date: JSON.stringify(new Date(2018, 1, 11, 2, 30, 00)),
+... end_date: JSON.stringify(new Date(2018, 1, 11, 4, 00, 00)),
+... });
+WriteResult({ "nInserted" : 1 })
+> db.Activities.insert({
+... event_Name: "Lunch",
+... start_date: JSON.stringify(new Date(2018, 1, 11, 4, 0, 00)),
+... end_date: JSON.stringify(new Date(2018, 1, 11, 5, 00, 00)),
+... });
+WriteResult({ "nInserted" : 1 })
+> db.Activities.insert({
+... event_Name: "Garage Sale",
+... start_date: JSON.stringify(new Date(2018, 1, 11, 5, 00, 00)),
+... end_date: JSON.stringify(new Date(2018, 1, 11, 7, 00, 00)),
+... });
+WriteResult({ "nInserted" : 1 })
+> db.Activities.count();
+13
+> db.Activities.find({"event_Name": "Lunch"});
+{ "_id" : ObjectId("5a67eef94c9560820d26ac20"), "event_Name" : "Lunch", "start_date" : "\"2018-02-10T12:00:00.000Z\"", "end_date" : "\"2018-02-10T13:30:00.000Z\"" }
+{ "_id" : ObjectId("5a67ef144c9560820d26ac25"), "event_Name" : "Lunch", "start_date" : "\"2018-02-11T12:00:00.000Z\"", "end_date" : "\"2018-02-11T13:00:00.000Z\"" }
+> db.Activities.find(
+... {$and: [{start_date: {$gt:(JSON.stringify(new Date(2018, 1, 10, 16, 0, 00)))}},
+... {end_date: {$lt:(JSON.stringify(new Date(2018, 1, 11, 15, 59, 59)))}}]
+... }).pretty();
+{
+	"_id" : ObjectId("5a67ef044c9560820d26ac22"),
+	"event_Name" : "Swimming Lessons for the Youth",
+	"start_date" : "\"2018-02-11T08:30:00.000Z\"",
+	"end_date" : "\"2018-02-11T10:30:00.000Z\""
+}
+{
+	"_id" : ObjectId("5a67ef0b4c9560820d26ac23"),
+	"event_Name" : "Swimming Exercise for Parents",
+	"start_date" : "\"2018-02-11T08:30:00.000Z\"",
+	"end_date" : "\"2018-02-11T10:30:00.000Z\""
+}
+{
+	"_id" : ObjectId("5a67ef104c9560820d26ac24"),
+	"event_Name" : "Bingo Tournament",
+	"start_date" : "\"2018-02-11T10:30:00.000Z\"",
+	"end_date" : "\"2018-02-11T12:00:00.000Z\""
+}
+{
+	"_id" : ObjectId("5a67ef144c9560820d26ac25"),
+	"event_Name" : "Lunch",
+	"start_date" : "\"2018-02-11T12:00:00.000Z\"",
+	"end_date" : "\"2018-02-11T13:00:00.000Z\""
+}
+{
+	"_id" : ObjectId("5a67ef1a4c9560820d26ac26"),
+	"event_Name" : "Garage Sale",
+	"start_date" : "\"2018-02-11T13:00:00.000Z\"",
+	"end_date" : "\"2018-02-11T15:00:00.000Z\""
+}
+> db.Activities.find().sort({"event_Name": -1})
+{ "_id" : ObjectId("5a67eeee4c9560820d26ac1e"), "event_Name" : "Youth Craft Lessons", "start_date" : "\"2018-02-10T08:30:00.000Z\"", "end_date" : "\"2018-02-10T10:00:00.000Z\"" }
+{ "_id" : ObjectId("5a67eee34c9560820d26ac1c"), "event_Name" : "Youth Bowling Tournament", "start_date" : "\"2018-02-09T17:30:00.000Z\"", "end_date" : "\"2018-02-09T19:15:00.000Z\"" }
+{ "_id" : ObjectId("5a67ef044c9560820d26ac22"), "event_Name" : "Swimming Lessons for the Youth", "start_date" : "\"2018-02-11T08:30:00.000Z\"", "end_date" : "\"2018-02-11T10:30:00.000Z\"" }
+{ "_id" : ObjectId("5a67ef0b4c9560820d26ac23"), "event_Name" : "Swimming Exercise for Parents", "start_date" : "\"2018-02-11T08:30:00.000Z\"", "end_date" : "\"2018-02-11T10:30:00.000Z\"" }
+{ "_id" : ObjectId("5a67eec44c9560820d26ac1a"), "event_Name" : "Seniors Golf Tournament", "start_date" : "\"2018-02-06T08:30:00.000Z\"", "end_date" : "\"2006-02-06T10:30:00.000Z\"" }
+{ "_id" : ObjectId("5a67eefe4c9560820d26ac21"), "event_Name" : "Pancake Breakfast", "start_date" : "\"2018-02-10T07:30:00.000Z\"", "end_date" : "\"2018-02-09T08:30:00.000Z\"" }
+{ "_id" : ObjectId("5a67eef94c9560820d26ac20"), "event_Name" : "Lunch", "start_date" : "\"2018-02-10T12:00:00.000Z\"", "end_date" : "\"2018-02-10T13:30:00.000Z\"" }
+{ "_id" : ObjectId("5a67ef144c9560820d26ac25"), "event_Name" : "Lunch", "start_date" : "\"2018-02-11T12:00:00.000Z\"", "end_date" : "\"2018-02-11T13:00:00.000Z\"" }
+{ "_id" : ObjectId("5a67eee84c9560820d26ac1d"), "event_Name" : "Ladies Cooking Lesson", "start_date" : "\"2018-02-09T19:15:00.000Z\"", "end_date" : "\"2018-02-09T20:00:00.000Z\"" }
+{ "_id" : ObjectId("5a67ef1a4c9560820d26ac26"), "event_Name" : "Garage Sale", "start_date" : "\"2018-02-11T13:00:00.000Z\"", "end_date" : "\"2018-02-11T15:00:00.000Z\"" }
+{ "_id" : ObjectId("5a67eedb4c9560820d26ac1b"), "event_Name" : "Community General Assembly Meeting", "start_date" : "\"2018-02-07T18:30:00.000Z\"", "end_date" : "\"2018-02-07T20:00:00.000Z\"" }
+{ "_id" : ObjectId("5a67ef104c9560820d26ac24"), "event_Name" : "Bingo Tournament", "start_date" : "\"2018-02-11T10:30:00.000Z\"", "end_date" : "\"2018-02-11T12:00:00.000Z\"" }
+{ "_id" : ObjectId("5a67eef44c9560820d26ac1f"), "event_Name" : "Adult Choir Practice", "start_date" : "\"2018-02-10T10:30:00.000Z\"", "end_date" : "\"2018-02-10T12:00:00.000Z\"" }
+> 
