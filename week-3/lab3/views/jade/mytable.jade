@@ -1,0 +1,16 @@
+doctype
+html
+    head
+        title= title
+    body
+        h1= title
+    table(border='1', bordercolor="#FF7F50")
+        thead
+            tr
+                th Province
+                th Capital
+        tbody
+            each capital, i in capitals
+                tr
+                    td= capital.province
+                    td= capital.capitals

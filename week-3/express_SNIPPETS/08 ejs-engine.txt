@@ -1,0 +1,3 @@
+var ejsEngine = require("ejs-locals");
+app.engine("ejs", ejsEngine);           // support master pages
+app.set("view engine", "ejs");          // ejs view engine

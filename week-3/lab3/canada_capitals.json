@@ -1,0 +1,15 @@
+[
+  {"province": "Alberta", "capitals": "Edmonton"},
+  {"province": "British Columbia", "capitals": "Victoria"},
+  {"province": "Manitoba", "capitals": "Winnipeg"},
+  {"province": "New Brunswick", "capitals": "Fredericton"},
+  {"province": "Newfoundland and Labrador", "capitals": "St. John's"},
+  {"province": "Nova Scotia", "capitals": "Halifax"},
+  {"province": "Ontario", "capitals": "Toronto"},
+  {"province": "Prince Edward Island", "capitals": "Charlottetown"},
+  {"province": "Quebec", "capitals": "Quebec City"},
+  {"province": "Saskatchewan", "capitals": "Regina"},
+  {"province": "Northwest Territories", "capitals": "Yellowknife"},
+  {"province": "Nunavut", "capitals": "Iqaluit"},
+  {"province": "Yukon", "capitals": "Whitehorse"}
+]
