@@ -1,0 +1,37 @@
+// Because we are going to be using a remote connection, be sure
+// to start the MongoDB Shell (mongo) with the --nodb flag. Then,
+// we can connect and define our own db instance.
+
+// Connect to the MongoLab database.
+var connection = new Mongo( "ds013456.mlab.com:13456" );
+
+// Connect to the test database.
+var db = connection.getDB( "institutedb" );
+
+// Authorize this connection.
+db.auth( "username", "password" );
+
+db.students.insert(
+[
+  {
+  "FirstName":"Tim",
+  "LastName":"Burke",
+  "School":"Tourism",
+  "StartDate": new Date("2010-02-20T08:30:00")
+  },{
+  "FirstName":"Lyn",
+  "LastName":"Petico",
+  "School":"Business",
+  "StartDate": new Date("2016-04-17T17:32:00")
+  },{
+  "FirstName":"Harry",
+  "LastName":"Wilkens",
+  "School":"Economics",
+  "StartDate": new Date("2010-02-20T08:30:00")
+  },{
+  "FirstName":"Judy",
+  "LastName":"Roy",
+  "School":"Marketing",
+  "StartDate": new Date("2014-05-16T17:32:00")
+  }
+]);

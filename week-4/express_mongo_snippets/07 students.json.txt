@@ -1,0 +1,28 @@
+[
+  {
+  "FirstName":"Bob",
+  "LastName":"Doe",
+  "School":"Engineering",
+  "StartDate": {"$date": "2015-09-30T08:30:00.000Z"}
+  },  {
+  "FirstName":"Ann",
+  "LastName":"Lee",
+  "School":"Medicine",
+  "StartDate": {"$date": "2014-04-15T07:32:00.000Z"}
+  },  {
+  "FirstName":"Sue",
+  "LastName":"Douglas",
+  "School":"Pharmacy",
+  "StartDate": {"$date": "2016-01-17T18:30:00.000Z"}
+  },  {
+  "FirstName":"Tom",
+  "LastName":"Brown",
+  "School":"Business",
+  "StartDate": {"$date": "2015-07-26T11:22:00.000Z"}
+  },  {
+  "FirstName":"Joe",
+  "LastName":"Mason",
+  "School":"Health",
+  "StartDate": {"$date": "2013-08-01T21:30:00.000Z"}
+  }
+]

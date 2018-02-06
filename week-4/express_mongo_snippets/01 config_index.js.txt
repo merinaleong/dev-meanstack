@@ -1,0 +1,9 @@
+module.exports = {  
+    // Database connection information
+    'database': 'mongodb://<dbuser>:<dbpassword>@ds151108.mlab.com:51108/institutedb',
+    'database_ignore': 'institutedb',
+
+    // Setting port for server
+    'port': process.env.PORT || 3000   
+};
+

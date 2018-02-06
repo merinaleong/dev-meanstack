@@ -1,0 +1,9 @@
+// get single student
+router.get("/students/:id", (req, res, next) => {
+    db.students.findOne({_id: mongojs.ObjectId(req.params.id)},function(err, data){
+        if (err) {
+            res.send(err);
+        }
+        res.json(data);
+    });
+});
