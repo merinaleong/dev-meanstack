@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <title>Cors Request</title>
+</head>
+<body>
+    <h3>Cors Request</h3>
+    <button id="btnGetCountries">Get Countries</button>
+
+    <pre id="preOutput"></pre>
+
+    <script src="https://code.jquery.com/jquery-2.2.4.min.js"></script>
+
+    <script>
+        $(function () {
+            var getCountries = function () {
+                var url = "http://localhost:3000/api/countries/";
+                $.get(url).always(showResponse);
+                return false;
+            };
+
+            var showResponse = function (object) {
+                $("#preOutput").text(JSON.stringify(object, null, 4));
+            };
+
+            $("#btnGetCountries").click(getCountries);
+        });
+    </script>
+
+</body>
+</html>
